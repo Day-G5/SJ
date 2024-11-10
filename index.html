@@ -4,38 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body::before{
-            position: absolute;
-            width: min(1400px, 90vw);
-            top: 10%;
-            left: 50%;
-            height: 90%;
-            transform: translateX(-50%);
-            content: '';
-            background-image: url(images/bg.png);
-            background-size: 100%;
-            background-repeat: no-repeat;
-            background-position: top center;
-            pointer-events: none;
-        }
-    </style>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
     <div class="banner">
-        <div class="slider" style="--quantity: 9">
+        <div class="slider" style="--quantity: 10">
         </div>
-    </div>
-    
+    </div>   
     <script type="module" src="./index.js"></script>
 </body>
 </html>

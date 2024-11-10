@@ -1,15 +1,22 @@
 @import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
 @import url('https://fonts.cdnfonts.com/css/poppins');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .banner{
     width: 100%;
     height: 100vh;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
 }
 
-.banner .slider{
+.slider{
     position: absolute;
     width: 200px;
     height: 250px;
@@ -20,21 +27,48 @@
     animation: autoRun 20s linear infinite;
     z-index: 2;
 }
+/* 
 @keyframes autoRun{
     from{
         transform: perspective(1000px) rotateX(-0deg) rotateY(0deg);
     }to{
         transform: perspective(1000px) rotateX(-0deg) rotateY(360deg);
     }
+} */
+
+@keyframes autoRun {
+    0% {
+        transform: perspective(1000px) rotateX(-0deg) rotateY(0deg);
+        /* z-index: 1; */
+    }
+    19.44% {  /* 70deg / 360deg * 100 */
+        transform: perspective(1000px) rotateX(-0deg) rotateY(70deg);
+        /* z-index: 1; */
+    }
+    69.44% {  /* 250deg / 360deg * 100 */
+        transform: perspective(1000px) rotateX(-0deg) rotateY(250deg);
+        /* z-index: 1; */
+    }
+    100% {
+        transform: perspective(1000px) rotateX(-0deg) rotateY(360deg);
+        /* z-index: 1; */
+    }
 }
 
-.banner .slider .item{
+.item{
     position: absolute;
     inset: 0 0 0 0;
-    transform: 
+    /* transform: 
         rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-        translateZ(550px) translateY(120px);
+        translateZ(550px) translateY(120px); */
 }
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .banner .slider .item img{
     width: 100%;
     height: 100%;
@@ -42,79 +76,26 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .banner .slider{
+    .slider{
         width: 160px;
         height: 200px;
         left: calc(50% - 80px);
     }
-    .banner .slider .item{
+    .item{
         transform: 
             rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
             translateZ(300px);
     }
-    .banner .content h1{
-        text-align: center;
-        width: 100%;
-        text-shadow: 0 10px 20px #000;
-        font-size: 7em;
-    }
-    .banner .content .author{
-        color: #fff;
-        padding: 20px;
-        text-shadow: 0 10px 20px #000;
-        z-index: 2;
-        max-width: unset;
-        width: 100%;
-        text-align: center;
-        padding: 0 30px;
-    }
 }
 @media screen and (max-width: 767px) {
-    .banner .slider{
+    .slider{
         width: 100px;
         height: 150px;
         left: calc(50% - 50px);
     }
-    .banner .slider .item{
+    .item{
         transform: 
             rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
             translateZ(180px);
     }
-    .banner .content h1{
-        font-size: 5em;
-    }
 }
-
-/* .container {
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.slider {
-    position: absolute;
-    width: 200px;
-    height: 250px;
-    top: 10%;
-    left: calc(50% - 100px);
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    animation: autoRun 20s linear infinite;
-    z-index: 2;
-}
-
-.tile {
-    position: absolute;
-    inset: 0 0 0 0;
-    transform: 
-        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-        translateZ(550px);
-}
-
-.tile img {
-    width: 200px;
-    height: 100%;
-    object-fit: cover;
-} */
